@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<h1>User Infromation:</h1>
+
+<h2> Add new user</h2>
+
+<form action="/" method="post">
+  First name:<br>
+  <input type="text" name="firstname" maxlength=10 placeholder="eg.John" required>
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" maxlength=10 placeholder="eg.Smith" required >
+  <br>
+  Age:<br>
+  <input type="number" name="age" maxlength=3 placeholder="eg.20" required>
+  <br>
+  Sex:<br>
+  <input type="text" name="sex" maxlength=1 placeholder="eg.M/F" required>
+
+  <br><br>
+  <input type="submit" value="Submit">
+
+</form>
+
+<form action="/result" method="POST">
+
+  <h2> Summary of past inputs</h2>
+  <select name = "selectOption">
+  <option value="first_name">First name </option>
+  <option value="last_name">Last Name</option>
+</select>
+
+    <input type="text" name="search" >
+
+  <input type="submit" value="Search">
+
+</form>
+
+
+
+
+{% if details %}
+<h2> result  </h2>
+    <br>
+{%  endif %}
+
+    {% for detail in details %}
+            <tr>
+                <td width="20%">{{ detail }} </td>
+            </tr>
+    {% endfor %}
+
+
+<form action="/all" method="GET">
+
+<input type="submit" value="search all">
+
+</form>
+
+
+<table align="center" width="75%" border="true">
+{% for row in all %}
+            <tr>
+                <td width="20%">{{row[0]}} </td>
+                <td width="20%">{{row[1]}} </td>
+                <td width="20%">{{row[2]}} </td>
+                <td width="20%">{{row[3]}} </td>
+            </tr>
+{% endfor %}
+</table>
+
+
+</body>
+
+</html>
