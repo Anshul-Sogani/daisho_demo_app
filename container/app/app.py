@@ -1,13 +1,13 @@
-from flask import Flask, render_template, make_response, redirect, request,url_for,jsonify
+from flask import Flask, render_template, request,jsonify
 import mysql.connector
 
 app = Flask(__name__)
 
 #connting to Databse employee through the connection string
-
+	
 def connectDB():
-  return (mysql.connector.connect(user='root', password='root',
-                host='db',database='employee', port='5000'))
+  return (mysql.connector.connect(user= 'root', password= 'root',
+                host= 'db', port= '3306',database= 'employee'))
 
 
 
@@ -113,4 +113,4 @@ def all():
 
 
 if __name__ == '__main__':
-    app.run()(host='0.0.0.0')
+    app.run(host='0.0.0.0')
